@@ -437,4 +437,44 @@ def createHashlist(endpoint, certpath, accessKey, name, isSalted, isHexSalt, sep
   resp = requests.post(endpoint, verify=certpath, json=createhashlist)
   return resp.json()
 
-# next is setHashlistName
+def setHashlistName(endpoint, certpath, accessKey, hashlistId, name):
+  sethashlistname = { 'section':'hashlist', 'request':'setHashlistName', 'name':name, 'hashlistId':hashlistId, 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=sethashlistname)
+  return resp.json()
+
+def setSecret(endpoint, certpath, accessKey, hashlistId, isSecret):
+  setsecret = { 'section':'hashlist', 'request':'setSecret', 'isSecret':isSecret, 'hashlistId':hashlistId, 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=setsecret)
+  return resp.json()
+
+def importCracked(endpoint, certpath, accessKey, hashlistId, separator, data):
+  importcracked = { 'section':'hashlist', 'request':'importCracked', 'hashlistId':hashlistId, 'separator':separator, 'data':data, 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=importcracked)
+  return resp.json()
+
+def exportCracked(endpoint, certpath, accessKey, hashlistId):
+  importcracked = { 'section':'hashlist', 'request':'exportCracked', 'hashlistId':hashlistId, 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=importcracked)
+  return resp.json()
+
+def generateWordlist(endpoint, certpath, accessKey, hashlistId):
+  generatewordlist = { 'section':'hashlist', 'request':'generateWordlist", 'hashlistId':hashlistId, 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=generatewordlist)
+  return resp.json()
+
+def exportLeft(endpoint, certpath, accessKey, hashlistId):
+  exportleft = { 'section':'hashlist', 'request':'exportLeft", 'hashlistId':hashlistId, 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=exportleft)
+  return resp.json()
+
+def deleteHashlist(endpoint, certpath, accessKey, hashlistId):
+  deletehashlist = { 'section':'hashlist', 'request':'deleteHashlist", 'hashlistId':hashlistId, 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=deleteHashlist)
+  return resp.json()
+
+def getHash(endpoint, certpath, accessKey, hash):
+  gethash = { 'section':'hashlist', 'request':'getHash', 'hash':hash, 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=gethash)
+  return resp.json()
+
+# Superhashlists are next

@@ -417,6 +417,24 @@ def setSupertaskName(endpoint, certpath, accessKey, supertaskId, name):
 
 def deleteSupertask(endpoint, certpath, accessKey, supertaskId):
   deletesupertask = { 'section':'supertask', 'request':'deleteSupertask', 'supertaskId':supertaskId, 'accessKey':accessKey }
-  resp = requests.post(endpoint, verify=certpath, json=deletesupertask
+  resp = requests.post(endpoint, verify=certpath, json=deletesupertask)
   return resp.json()
 
+#Hashlists - hashlist
+
+def listHashlists(endpoint, certpath, accessKey):
+  listhashlists = { 'section':'hashlist', 'request':'listHashlists', 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=listhashlists)
+  return resp.json()
+
+def getHashlist(endpoint, certpath, accessKey, hashlistId):
+  gethashlist = { 'section':'hashlist', 'request':'getHashlist', 'hashlistId':hashlistId, 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=gethashlist)
+  return resp.json()
+
+def createHashlist(endpoint, certpath, accessKey, name, isSalted, isHexSalt, seperator, format, hashtypeId, accessGroupId, data):
+  createhashlist = { 'section':'hashlist', 'request':'createHashlist', 'name':name, 'isSalted':isSalted, 'isHexSalt':isHexSalt, 'seperator:seperator, 'format':format, 'hashtypeId':hashtypeId, 'accessGroupId':accessGroupId, 'data':data, 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=createhashlist)
+  return resp.json()
+
+# next is setHashlistName

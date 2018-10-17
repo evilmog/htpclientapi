@@ -334,3 +334,89 @@ def archiveSupertask(endpoint, certpath, accessKey, supertaskId):
   archivesupertask = { 'section':'task', 'request':'archiveSupertask', 'supertaskId':supertaskId, 'accessKey':accessKey }
   resp = requests.post(endpoint, verify=certpath, json=archivesupertask)
   return resp.json()
+
+#Preconfigured Tasks (pretask)
+def setPretaskPriority(endpoint, certpath, accessKey, pretaskId, priority):
+  setpretaskpriority = { 'section':'pretask', 'request':'setPretaskPriority', 'pretaskId':pretaskId, 'priority':priority, 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=setpretaskpriority)
+  return resp.json()
+
+def setPretaskName(endpoint, certpath, accessKey, pretaskId, name):
+  setpretaskname = { 'section':'pretask', 'request':'setPretaskName', 'pretaskId':pretaskId, 'name':name, 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=setpretaskname)
+  return resp.json()
+
+def setPretaskColor(endpoint, certpath, accessKey, pretaskId, color):
+  setpretaskcolor = { 'section':'pretask', 'request':'setPretaskColor', 'pretaskId':pretaskId, 'color':color, 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=setpretaskcolor)
+  return resp.json()
+
+def setPretaskChunksize(endpoint, certpath, accessKey, pretaskId, chunksize):
+  setpretaskchunksize = { 'section':'pretask', 'request':'setPretaskChunksize', 'pretaskId':pretaskId, 'chunksize':chunksize, 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=setpretaskchunksize)
+  return resp.json()
+
+def setPretaskCpuOnly(endpoint, certpath, accessKey, pretaskId, isCpuOnly):
+  setpretaskcpuonly = { 'section':'pretask', 'request':'setPretaskCpuOnly', 'pretaskId':pretaskId, 'isCpuOnly':isCpuOnly, 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=setpretaskcpuonly)
+  return resp.json()
+
+def setPretaskSmall(endpoint, certpath, accessKey, pretaskId, isSmall):
+  setpretasksmall = { 'section':'pretask', 'request':'setPretaskSmall', 'pretaskId':pretaskId, 'isSmall':isSmall, 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=setpretasksmall)
+  return resp.json()
+
+def deletePretask(endpoint, certpath, accessKey, pretaskId):
+  deletepretask = { 'section':'pretask', 'request':'deletePretask', 'pretaskId':pretaskId, 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=deletepretask)
+  return resp.json()
+
+# files must be an array, []. or [1], or [1,2] 
+def createPretask(endpoint, certpath, accessKey, name, attackCmd, chunksize, statusTimer, benchmarkType, color, isCpuOnly, isSmall, priority, files, crackerTypeId)
+  createpretask = { 'section':'pretask', 'request':'createPreTask", 'name':name, 'attackCmd':attackCmd, 'chunksize':chunksize, 'statusTimer':statusTimer, 'benchmarkType':benchmarkType, 'color':color, 'isCpuOnly':isCpuOnly, 'isSmall':isSmall, 'priority':priority, 'files':files, 'crackerTypeId':crackerTypeId, 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=createpretask)
+  return resp.json()
+
+def listPretasks(endpoint, certpath, accessKey):
+  listpretasks = { 'section':'pretask', 'request':'listPretasks', 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=listpretasks)
+  return resp.json()
+
+def getPretask(endpoint, certpath, accessKey, pretaskId):
+  getpretask = { 'section':'pretask', 'request':'getPretask", "pretaskId":pretaskId, 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=getpretask)
+  return resp.json()
+
+#Supertasks - supertask
+# masks must be an array ["?d?d?d?d", "?a?a?a"]
+def importSupertask(endpoint, certpath, accessKey, name, isCpuOnly, isSmall, masks, optimizedFlag, crackerTypeId):
+  importsupertask = { 'section':'supertask', 'request':'importSupertask', 'name':name, 'isCpuOnly':isCpuOnly, 'isSmall':isSmall, 'masks':masks, 'optimizedFlag':optimizedFlag, 'crackerTypeId':crackerTypeId, 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=importsupertask)  
+  return resp.json()
+
+def listSupertasks(endpoint, certpath, accessKey):
+  listsupertask = { 'section':'supertask', 'request':'listSupertasks', 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=listsupertask)
+  return resp.json()
+
+def getSupertask(endpoint, certpath, accessKey, supertaskId):
+  getsupertask = { 'section':'supertask', 'request':'getSupertask', 'supertaskId':supertaskId, 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=getsupertask)
+  return resp.json()
+
+# pretasks must be an array [7, 8]
+def createSupertask(endpoint, certpath, accessKey, name, pretasks):
+  createsupertask = { 'section':'supertask', 'request':'createSupertask', 'name':name, 'pretasks':pretasks, 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=createsupertask)
+  return resp.json()
+
+def setSupertaskName(endpoint, certpath, accessKey, supertaskId, name):
+  setsupertaskname = { 'section':'supertask', 'request':'setSupertaskName', 'supertaskId':supertaskId, 'name':name, 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=createsupertask)
+  return resp.json()
+
+def deleteSupertask(endpoint, certpath, accessKey, supertaskId):
+  deletesupertask = { 'section':'supertask', 'request':'deleteSupertask', 'supertaskId':supertaskId, 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=deletesupertask
+  return resp.json()
+

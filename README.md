@@ -7,7 +7,7 @@ https://github.com/s3inlc/hashtopolis/blob/master/doc/user-api/user-api.pdf
 right now it connects on https, and you will need a cert in PEM format for your
 client to connect nicely.
 
-###
+'''
 from functions import *
 import requests
 import json
@@ -29,6 +29,6 @@ for user in data["users"]:
   print "  isValid:         " + str(userdata["isValid"])
   print "  sessionLifetime: " + str(userdata["sessionLifetime"])
   print " "
-###
+'''
 
 Yes this is a crappy start and I haven't finished all the function definitions but its there

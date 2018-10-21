@@ -372,8 +372,8 @@ def deletePretask(endpoint, certpath, accessKey, pretaskId):
   return resp.json()
 
 # files must be an array, []. or [1], or [1,2] 
-def createPretask(endpoint, certpath, accessKey, name, attackCmd, chunksize, statusTimer, benchmarkType, color, isCpuOnly, isSmall, priority, files, crackerTypeId)
-  createpretask = { 'section':'pretask', 'request':'createPreTask", 'name':name, 'attackCmd':attackCmd, 'chunksize':chunksize, 'statusTimer':statusTimer, 'benchmarkType':benchmarkType, 'color':color, 'isCpuOnly':isCpuOnly, 'isSmall':isSmall, 'priority':priority, 'files':files, 'crackerTypeId':crackerTypeId, 'accessKey':accessKey }
+def createPretask(endpoint, certpath, accessKey, name, attackCmd, chunksize, statusTimer, benchmarkType, color, isCpuOnly, isSmall, priority, files, crackerTypeId):
+  createpretask = { 'section':'pretask', 'request':'createPreTask', 'name':name, 'attackCmd':attackCmd, 'chunksize':chunksize, 'statusTimer':statusTimer, 'benchmarkType':benchmarkType, 'color':color, 'isCpuOnly':isCpuOnly, 'isSmall':isSmall, 'priority':priority, 'files':files, 'crackerTypeId':crackerTypeId, 'accessKey':accessKey }
   resp = requests.post(endpoint, verify=certpath, json=createpretask)
   return resp.json()
 
@@ -383,7 +383,7 @@ def listPretasks(endpoint, certpath, accessKey):
   return resp.json()
 
 def getPretask(endpoint, certpath, accessKey, pretaskId):
-  getpretask = { 'section':'pretask', 'request':'getPretask", "pretaskId":pretaskId, 'accessKey':accessKey }
+  getpretask = { 'section':'pretask', 'request':'getPretask', 'pretaskId':pretaskId, 'accessKey':accessKey }
   resp = requests.post(endpoint, verify=certpath, json=getpretask)
   return resp.json()
 

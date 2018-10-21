@@ -433,7 +433,7 @@ def getHashlist(endpoint, certpath, accessKey, hashlistId):
   return resp.json()
 
 def createHashlist(endpoint, certpath, accessKey, name, isSalted, isHexSalt, seperator, format, hashtypeId, accessGroupId, data):
-  createhashlist = { 'section':'hashlist', 'request':'createHashlist', 'name':name, 'isSalted':isSalted, 'isHexSalt':isHexSalt, 'seperator:seperator, 'format':format, 'hashtypeId':hashtypeId, 'accessGroupId':accessGroupId, 'data':data, 'accessKey':accessKey }
+  createhashlist = { 'section':'hashlist', 'request':'createHashlist', 'name':name, 'isSalted':isSalted, 'isHexSalt':isHexSalt, 'seperator':seperator, 'format':format, 'hashtypeId':hashtypeId, 'accessGroupId':accessGroupId, 'data':data, 'accessKey':accessKey }
   resp = requests.post(endpoint, verify=certpath, json=createhashlist)
   return resp.json()
 
@@ -458,17 +458,17 @@ def exportCracked(endpoint, certpath, accessKey, hashlistId):
   return resp.json()
 
 def generateWordlist(endpoint, certpath, accessKey, hashlistId):
-  generatewordlist = { 'section':'hashlist', 'request':'generateWordlist", 'hashlistId':hashlistId, 'accessKey':accessKey }
+  generatewordlist = { 'section':'hashlist', 'request':'generateWordlist', 'hashlistId':hashlistId, 'accessKey':accessKey }
   resp = requests.post(endpoint, verify=certpath, json=generatewordlist)
   return resp.json()
 
 def exportLeft(endpoint, certpath, accessKey, hashlistId):
-  exportleft = { 'section':'hashlist', 'request':'exportLeft", 'hashlistId':hashlistId, 'accessKey':accessKey }
+  exportleft = { 'section':'hashlist', 'request':'exportLeft', 'hashlistId':hashlistId, 'accessKey':accessKey }
   resp = requests.post(endpoint, verify=certpath, json=exportleft)
   return resp.json()
 
 def deleteHashlist(endpoint, certpath, accessKey, hashlistId):
-  deletehashlist = { 'section':'hashlist', 'request':'deleteHashlist", 'hashlistId':hashlistId, 'accessKey':accessKey }
+  deletehashlist = { 'section':'hashlist', 'request':'deleteHashlist', 'hashlistId':hashlistId, 'accessKey':accessKey }
   resp = requests.post(endpoint, verify=certpath, json=deleteHashlist)
   return resp.json()
 
@@ -509,7 +509,7 @@ def listFiles(endpoint, certpath, accessKey):
   return resp.json()
 
 def getFile(endpoint, certpath, accessKey, fileId):
-  getfile = { 'section': 'file', 'request': "getFile', 'fileId': fileId, 'accessKey': accessKey }
+  getfile = { 'section': 'file', 'request': 'getFile', 'fileId': fileId, 'accessKey': accessKey }
   resp = requests.post(endpoint, verify=certpath, json=getfile)
   return resp.json()
 

@@ -432,8 +432,8 @@ def getHashlist(endpoint, certpath, accessKey, hashlistId):
   resp = requests.post(endpoint, verify=certpath, json=gethashlist)
   return resp.json()
 
-def createHashlist(endpoint, certpath, accessKey, name, isSalted, isHexSalt, seperator, format, hashtypeId, accessGroupId, data):
-  createhashlist = { 'section':'hashlist', 'request':'createHashlist', 'name':name, 'isSalted':isSalted, 'isHexSalt':isHexSalt, 'seperator':seperator, 'format':format, 'hashtypeId':hashtypeId, 'accessGroupId':accessGroupId, 'data':data, 'accessKey':accessKey }
+def createHashlist(endpoint, certpath, accessKey, name, isSalted, isHexSalt, seperator, format, hashtypeId, accessGroupId, data, useBrain, brainFeatures):
+  createhashlist = { 'section':'hashlist', 'request':'createHashlist', 'name':name, 'isSalted':isSalted, 'isHexSalt':isHexSalt, 'seperator':seperator, 'format':format, 'hashtypeId':hashtypeId, 'accessGroupId':accessGroupId, 'data':data, 'useBrain':useBrain, 'brainFeatures':brainFeatures, 'accessKey':accessKey }
   resp = requests.post(endpoint, verify=certpath, json=createhashlist)
   return resp.json()
 

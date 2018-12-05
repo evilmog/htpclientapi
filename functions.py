@@ -246,7 +246,7 @@ def getTask(endpoint, certpath, accessKey, taskId):
 
 def getTaskCracked(endpoint, certpath, accessKey, taskId):
   gettaskcracked = { 'section':'task', 'request':'getCracked', 'taskId':taskId, 'accessKey':accessKey }
-  resp = requests.post(endpoint, verify=certpath, json=gettask)
+  resp = requests.post(endpoint, verify=certpath, json=gettaskcracked)
   return resp.json()
 
 def listSubtasks(endpoint, certpath, accessKey, superTaskId):

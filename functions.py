@@ -232,7 +232,7 @@ def getAgentBinaries(endpoint, certpath, accessKey):
   resp = requests.post(endpoint, verify=certpath, json=getagentbinary)
   return resp.json()
 
-#Tasks
+#Task Section
 
 def listTasks(endpoint, certpath, accessKey):
   listtask = { 'section':'task', 'request':'listTasks', 'accessKey':accessKey }
@@ -241,6 +241,11 @@ def listTasks(endpoint, certpath, accessKey):
 
 def getTask(endpoint, certpath, accessKey, taskId):
   gettask = { 'section':'task', 'request':'getTask', 'taskId':taskId, 'accessKey':accessKey }
+  resp = requests.post(endpoint, verify=certpath, json=gettask)
+  return resp.json()
+
+def getTaskCracked(endpoint, certpath, accessKey, taskId):
+  gettaskcracked = { 'section':'task', 'request':'getCracked, 'taskId':taskId, 'accessKey':accessKey }
   resp = requests.post(endpoint, verify=certpath, json=gettask)
   return resp.json()
 

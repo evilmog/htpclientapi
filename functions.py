@@ -260,8 +260,8 @@ def getChunk(endpoint, certpath, accessKey, chunkId):
   return resp.json()
 
 #files must be an array [] or [1,2]
-def createTask(endpoint, certpath, accessKey, name, hashlistId, attackCmd, chunksize, statusTimer, benchmarkType, color, isCpuOnly, isSmall, Skip, crackerVersionId, priority, isPrince):
-  createtask = { 'section':'task', 'request':'createTask', 'name':name, 'hashlistId':hashlistId, 'attackCmd':attackCmd, 'chunksize':chunksize, 'statusTimer':statusTimer, 'benchmarkType':benchmarkType, 'color':color, 'isCpuOnly':isCpuOnly, 'isSmall':isSmall, 'skip':skip, 'crackerVersionId':crackerVersionId, 'files':files, 'priority':priority, 'isPrince':isPrince, 'accessKey':accessKey }
+def createTask(endpoint, certpath, accessKey, name, hashlistId, attackCmd, chunksize, statusTimer, benchmarkType, color, isCpuOnly, isSmall, Skip, crackerVersionId, priority, files, isPrince):
+  createtask = { 'section':'task', 'request':'createTask', 'name':name, 'hashlistId':hashlistId, 'attackCmd':attackCmd, 'chunksize':chunksize, 'statusTimer':statusTimer, 'benchmarkType':benchmarkType, 'color':color, 'isCpuOnly':isCpuOnly, 'isSmall':isSmall, 'skip':Skip, 'crackerVersionId':crackerVersionId, 'files':files, 'priority':priority, 'isPrince':isPrince, 'accessKey':accessKey }
   resp = requests.post(endpoint, verify=certpath, json=createtask)
   return resp.json()
 
@@ -437,8 +437,11 @@ def getHashlist(endpoint, certpath, accessKey, hashlistId):
   resp = requests.post(endpoint, verify=certpath, json=gethashlist)
   return resp.json()
 
-def createHashlist(endpoint, certpath, accessKey, name, isSalted, isHexSalt, seperator, format, hashtypeId, accessGroupId, data):
-  createhashlist = { 'section':'hashlist', 'request':'createHashlist', 'name':name, 'isSalted':isSalted, 'isHexSalt':isHexSalt, 'seperator':seperator, 'format':format, 'hashtypeId':hashtypeId, 'accessGroupId':accessGroupId, 'data':data, 'accessKey':accessKey }
+def createHashlist(endpoint, certpath, accessKey, name, isSalted, isSecret, isHexSalt, separator, format, hashtypeId, accessGroupId, data, useBrain, brainFeatures):
+  createhashlist = { 'section':'hashlist', 'request':'createHashlist', 'name':name, 'isSalted':isSalted, 'isSecret':isSecret, 'isHexSalt':isHexSalt, 'separator':separator, 'format':format, 'hashtypeId':hashtypeId, 'accessGroupId':accessGroupId, 'data':data, 'useBrain':useBrain, 'brainFeatures':brainFeatures, 'accessKey':accessKey }
+  print "JSON:"
+  print createhashlist
+  print " "
   resp = requests.post(endpoint, verify=certpath, json=createhashlist)
   return resp.json()
 

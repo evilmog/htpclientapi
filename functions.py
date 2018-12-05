@@ -246,7 +246,6 @@ def getTask(endpoint, certpath, accessKey, taskId):
 
 def getTaskCracked(endpoint, certpath, accessKey, taskId):
   gettaskcracked = { 'section':'task', 'request':'getCracked', 'taskId':taskId, 'accessKey':accessKey }
-  print gettaskcracked
   resp = requests.post(endpoint, verify=certpath, json=gettaskcracked)
   return resp.json()
 

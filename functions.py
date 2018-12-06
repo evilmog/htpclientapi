@@ -5,53 +5,54 @@ requests.packages.urllib3.disable_warnings()
 
 # Test Section
 def test_connection(endpoint, certpath):
-    test = {'section': 'test', 'request': 'connection'}
-    resp = requests.post(endpoint, verify=certpath, json=test)
+    testjson = {'section': 'test', 'request': 'connection'}
+    resp = requests.post(endpoint, verify=certpath, json=testjson)
     return resp.json()["response"]
 
 
-def test_access(endpoint, certpath, accessKey):
-    access = {'section': 'test', 'request': 'access', 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=access)
+def test_access(endpoint, certpath, accesskey):
+    accessjson = {'section': 'test', 'request': 'access', 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=accessjson)
     return resp.json()["response"]
 
 
 # User Section
-def listUsers(endpoint, certpath, accessKey):
-    userlist = {'section': 'user', 'request': 'listUsers', 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=userlist)
+def listusers(endpoint, certpath, accesskey):
+    listusersjson = {'section': 'user', 'request': 'listUsers', 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=listusersjson)
     return resp.json()
 
 
-def getUser(endpoint, certpath, accessKey, userId):
-    getuser = {'section': 'user', 'request': 'getUser', 'userId': userId, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=getuser)
+def getuser(endpoint, certpath, accesskey, userid):
+    getuserjson = {'section': 'user', 'request': 'getUser', 'userId': userid, 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=getuserjson)
     return resp.json()
 
 
-def createUser(endpoint, certpath, accessKey, username, email, rightGroupId):
-    createuser = {'section': 'user', 'request': 'createUser', 'username': username, 'rightGroupId': rightgroupId,
-                  'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=createuser)
+def createuser(endpoint, certpath, accesskey, username, email, rightgroupid):
+    createuserjson = {'section': 'user', 'request': 'createUser', 'username': username, 'email': email,
+                      'rightGroupId': rightgroupid,
+                      'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=createuserjson)
     return resp.json()
 
 
-def disableUser(endpoint, certpath, accessKey, userId):
-    disableuser = {'section': 'user', 'request': 'disableUser', 'userId': userId, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=disableuser)
+def disableuser(endpoint, certpath, accesskey, userid):
+    disableuserjson = {'section': 'user', 'request': 'disableUser', 'userId': userid, 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=disableuserjson)
     return resp.json()
 
 
-def enableUser(endpoint, certpath, accessKey, userId):
-    enableuser = {'section': 'user', 'request': 'enableUser', 'userId': userId, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=enableuser)
+def enableuser(endpoint, certpath, accesskey, userid):
+    enableuserjson = {'section': 'user', 'request': 'enableUser', 'userId': userid, 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=enableuserjson)
     return resp.json()
 
 
-def setUserPassword(endpoint, certpath, accessKey, userId, password):
-    setuserpassword = {'section': 'user', 'request': 'setUserPassword', 'userId': userId, 'password': password,
-                       'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=setuserpassword)
+def setuserpassword(endpoint, certpath, accesskey, userid, password):
+    setuserpasswordjson = {'section': 'user', 'request': 'setUserPassword', 'userId': userid, 'password': password,
+                           'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=setuserpasswordjson)
     return resp.json()
 
 
@@ -101,8 +102,8 @@ def addUser(endpoint, certpath, accessKey, groupId, userId):
 
 
 def removeUser(endpoint, certpath, accessKey, groupId, userId):
-    adduser = {'section': 'group', 'request': 'removeUser', 'groupId': groupId, 'userId': userId,
-               'accessKey': accessKey}
+    removeuser = {'section': 'group', 'request': 'removeUser', 'groupId': groupId, 'userId': userId,
+                  'accessKey': accessKey}
     resp = requests.post(endpoint, verify=certpath, json=removeuser)
     return resp.json()
 
@@ -214,10 +215,11 @@ def getConfig(endpoint, certpath, accessKey, configItem):
     return resp.json()
 
 
-def setConfig(endpoint, certpath, accessKey, configItem, value, force):
-    setConfig = {'section': 'config', 'request': 'setConfig', 'configItem': configItem, 'value': value, 'force': force,
-                 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=setconfig)
+def setconfig(endpoint, certpath, accessKey, configItem, value, force):
+    setconfigjson = {'section': 'config', 'request': 'setConfig', 'configItem': configItem, 'value': value,
+                     'force': force,
+                     'accessKey': accessKey}
+    resp = requests.post(endpoint, verify=certpath, json=setconfigjson)
     return resp.json()
 
 
@@ -429,17 +431,17 @@ def purgeTask(endpoint, certpath, accessKey, taskId):
     return resp.json()
 
 
-def setSupertaskName(endpoint, certpath, accessKey, supertaskId, name):
+def tasksetSupertaskName(endpoint, certpath, accessKey, supertaskId, name):
     setsupertaskname = {'section': 'task', 'request': 'setSupertaskName', 'supertaskId': supertaskId, 'name': name,
                         'accessKey': accessKey}
     resp = requests.post(endpoint, verify=certpath, json=setsupertaskname)
     return resp.json()
 
 
-def deleteSupertask(endpoint, certpath, accessKey, supertaskId):
-    setsupertaskname = {'section': 'task', 'request': 'deleteSupertask', 'supertaskId': supertaskId,
-                        'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=setsupertaskname)
+def taskdeletetsupertask(endpoint, certpath, accessKey, supertaskid):
+    deletesupertaskjson = {'section': 'task', 'request': 'deleteSupertask', 'supertaskId': supertaskid,
+                           'accessKey': accessKey}
+    resp = requests.post(endpoint, verify=certpath, json=deletesupertaskjson)
     return resp.json()
 
 
@@ -552,17 +554,18 @@ def getSupertask(endpoint, certpath, accessKey, supertaskId):
 
 
 # pretasks must be an array [7, 8]
-def createSupertask(endpoint, certpath, accessKey, name, pretasks):
-    createsupertask = {'section': 'supertask', 'request': 'createSupertask', 'name': name, 'pretasks': pretasks,
-                       'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=createsupertask)
+def createsupertask(endpoint, certpath, accesskey, name, pretasks):
+    createsupertaskjson = {'section': 'supertask', 'request': 'createSupertask', 'name': name, 'pretasks': pretasks,
+                           'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=createsupertaskjson)
     return resp.json()
 
 
 def setSupertaskName(endpoint, certpath, accessKey, supertaskId, name):
-    setsupertaskname = {'section': 'supertask', 'request': 'setSupertaskName', 'supertaskId': supertaskId, 'name': name,
-                        'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=createsupertask)
+    setsupertasknamejson = {'section': 'supertask', 'request': 'setSupertaskName', 'supertaskId': supertaskId,
+                            'name': name,
+                            'accessKey': accessKey}
+    resp = requests.post(endpoint, verify=certpath, json=setsupertasknamejson)
     return resp.json()
 
 

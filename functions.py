@@ -326,152 +326,157 @@ def getagentbinaries(endpoint, certpath, accesskey):
 
 # Task Section
 
-def listTasks(endpoint, certpath, accessKey):
-    listtask = {'section': 'task', 'request': 'listTasks', 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=listtask)
+def listtasks(endpoint, certpath, accesskey):
+    listtasksjson = {'section': 'task', 'request': 'listTasks', 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=listtasksjson)
     return resp.json()
 
 
-def getTask(endpoint, certpath, accessKey, taskId):
-    gettask = {'section': 'task', 'request': 'getTask', 'taskId': taskId, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=gettask)
+def gettask(endpoint, certpath, accesskey, taskid):
+    gettaskjson = {'section': 'task', 'request': 'getTask', 'taskId': taskid, 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=gettaskjson)
     return resp.json()
 
 
-def getTaskCracked(endpoint, certpath, accessKey, taskId):
-    gettaskcracked = {'section': 'task', 'request': 'getCracked', 'taskId': taskId, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=gettaskcracked)
+def gettaskcracked(endpoint, certpath, accesskey, taskid):
+    gettaskcrackedjson = {'section': 'task', 'request': 'getCracked', 'taskId': taskid, 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=gettaskcrackedjson)
     return resp.json()
 
 
-def listSubtasks(endpoint, certpath, accessKey, superTaskId):
-    listsubtask = {'section': 'task', 'request': 'listSubtasks', 'superTaskId': superTaskId, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=listsubtask)
+def listsubtasks(endpoint, certpath, accesskey, supertaskid):
+    listsubtasksjson = {'section': 'task', 'request': 'listSubtasks', 'superTaskId': supertaskid,
+                        'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=listsubtasksjson)
     return resp.json()
 
 
-def getChunk(endpoint, certpath, accessKey, chunkId):
-    getchunk = {'section': 'task', 'request': 'getChunk', 'chunkId': chunkId, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=getchunk)
+def getchunk(endpoint, certpath, accesskey, chunkid):
+    getchunkjson = {'section': 'task', 'request': 'getChunk', 'chunkId': chunkid, 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=getchunkjson)
     return resp.json()
 
 
 # files must be an array [] or [1,2]
-def createTask(endpoint, certpath, accessKey, name, hashlistId, attackCmd, chunksize, statusTimer, benchmarkType, color,
-               isCpuOnly, isSmall, Skip, crackerVersionId, priority, files, isPrince):
-    createtask = {'section': 'task', 'request': 'createTask', 'name': name, 'hashlistId': hashlistId,
-                  'attackCmd': attackCmd, 'chunksize': chunksize, 'statusTimer': statusTimer,
-                  'benchmarkType': benchmarkType, 'color': color, 'isCpuOnly': isCpuOnly, 'isSmall': isSmall,
-                  'skip': Skip, 'crackerVersionId': crackerVersionId, 'files': files, 'priority': priority,
-                  'isPrince': isPrince, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=createtask)
+def createtask(endpoint, certpath, accesskey, name, hashlistid, attackcmd, chunksize, statustimer, benchmarktype, color,
+               iscpuonly, issmall, skip, crackerversionid, priority, files, isprince):
+    createtaskjson = {'section': 'task', 'request': 'createTask', 'name': name, 'hashlistId': hashlistid,
+                      'attackCmd': attackcmd, 'chunksize': chunksize, 'statusTimer': statustimer,
+                      'benchmarkType': benchmarktype, 'color': color, 'isCpuOnly': iscpuonly, 'isSmall': issmall,
+                      'skip': skip, 'crackerVersionId': crackerversionid, 'files': files, 'priority': priority,
+                      'isPrince': isprince, 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=createtaskjson)
     return resp.json()
 
 
-def runPretask(endpoint, certpath, accessKey, name, hashlistId, pretaskId, crackerVersionId):
-    runpretask = {'section': 'task', 'request': 'runPretask', 'name': name, 'hashlistId': hashlistId,
-                  'pretaskId': pretaskId, 'crackerVersionId': crackerVersionId, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=runpretask)
+def runpretask(endpoint, certpath, accesskey, name, hashlistid, pretaskid, crackerversionid):
+    runpretaskjson = {'section': 'task', 'request': 'runPretask', 'name': name, 'hashlistId': hashlistid,
+                      'pretaskId': pretaskid, 'crackerVersionId': crackerversionid, 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=runpretaskjson)
     return resp.json()
 
 
-def runSupertask(endpoint, certpath, accessKey, name, hashlistId, supertaskId, crackerVersionId):
-    runsupertask = {'section': 'task', 'request': 'runSupertask', 'hashlistId': hashlistId, 'supertaskId': supertaskId,
-                    'crackerVersionId': crackerVersionId, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=runsupertask)
+def runsupertask(endpoint, certpath, accesskey, hashlistid, supertaskid, crackerversionid):
+    runsupertaskjson = {'section': 'task', 'request': 'runSupertask', 'hashlistId': hashlistid,
+                        'supertaskId': supertaskid,
+                        'crackerVersionId': crackerversionid, 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=runsupertaskjson)
     return resp.json()
 
 
-def setTaskPriority(endpoint, certpath, accessKey, taskId, priority):
-    settaskpriority = {'section': 'task', 'request': 'setTaskPriority', 'taskId': taskId, 'priority': priority,
-                       'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=settaskpriority)
+def settaskpriority(endpoint, certpath, accesskey, taskid, priority):
+    settaskpriorityjson = {'section': 'task', 'request': 'setTaskPriority', 'taskId': taskid, 'priority': priority,
+                           'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=settaskpriorityjson)
     return resp.json()
 
 
-def setSupertaskPriority(endpoint, certpath, accessKey, supertaskId, supertaskPriority):
-    setsupertaskpriority = {'section': 'task', 'request': 'setSupertaskPriority', 'supertaskId': supertaskId,
-                            'supertaskPriority': supertaskPriority, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=setsupertaskpriority)
+def setsupertaskpriority(endpoint, certpath, accesskey, supertaskid, supertaskpriority):
+    setsupertaskpriorityjson = {'section': 'task', 'request': 'setSupertaskPriority', 'supertaskId': supertaskid,
+                                'supertaskPriority': supertaskpriority, 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=setsupertaskpriorityjson)
     return resp.json()
 
 
-def setTaskName(endpoint, certpath, accessKey, taskId, name):
-    settaskname = {'section': 'task', 'request': 'setTaskName', 'taskId': taskId, 'name': name, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=settaskname)
+def settaskname(endpoint, certpath, accesskey, taskid, name):
+    settasknamejson = {'section': 'task', 'request': 'setTaskName', 'taskId': taskid, 'name': name,
+                       'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=settasknamejson)
     return resp.json()
 
 
-def setTaskColor(endpoint, certpath, accessKey, taskId, color):
-    settaskcolor = {'section': 'task', 'request': 'setTaskColor', 'taskId': taskId, 'color': color,
-                    'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=settaskcolor)
+def settaskcolor(endpoint, certpath, accesskey, taskid, color):
+    settaskcolorjson = {'section': 'task', 'request': 'setTaskColor', 'taskId': taskid, 'color': color,
+                        'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=settaskcolorjson)
     return resp.json()
 
 
-def setTaskCpuOnly(endpoint, certpath, accessKey, taskId, isCpuOnly):
-    setiscpuonly = {'section': 'task', 'request': 'setTaskCpuOnly', 'taskId': taskId, 'isCpuOnly': isCpuOnly,
-                    'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=setiscpuonly)
+def settaskcpuonly(endpoint, certpath, accesskey, taskid, iscpuonly):
+    settaskcpuonlyjson = {'section': 'task', 'request': 'setTaskCpuOnly', 'taskId': taskid, 'isCpuOnly': iscpuonly,
+                          'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=settaskcpuonlyjson)
     return resp.json()
 
 
-def setTaskSmall(endpoint, certpath, accessKey, taskId, isSmall):
-    settasksmall = {'section': 'task', 'request': 'setTaskSmall', 'taskId': taskId, 'isSmall': isSmall,
-                    'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=settasksmall)
+def settasksmall(endpoint, certpath, accesskey, taskid, issmall):
+    settasksmalljson = {'section': 'task', 'request': 'setTaskSmall', 'taskId': taskid, 'isSmall': issmall,
+                        'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=settasksmalljson)
     return resp.json()
 
 
-def taskUnassignAgent(endpoint, certpath, accessKey, agentId):
-    taskunassignagent = {'section': 'task', 'request': 'taskUnassignAgent', 'agentId': agentId, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=taskunassignagent)
+def taskunassignagent(endpoint, certpath, accesskey, agentid):
+    taskunassignagentjson = {'section': 'task', 'request': 'taskUnassignAgent', 'agentId': agentid,
+                             'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=taskunassignagentjson)
     return resp.json()
 
 
-def deleteTask(endpoint, certpath, accessKey, taskId):
-    deletetask = {'section': 'task', 'request': 'deleteTask', 'taskId': taskId, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=deletetask)
+def deletetask(endpoint, certpath, accesskey, taskid):
+    deletetaskjson = {'section': 'task', 'request': 'deleteTask', 'taskId': taskid, 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=deletetaskjson)
     return resp.json()
 
 
-def purgeTask(endpoint, certpath, accessKey, taskId):
-    purgetask = {'section': 'task', 'request': 'purgeTask', 'taskId': taskId, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=purgetask)
+def purgetask(endpoint, certpath, accesskey, taskid):
+    purgetaskjson = {'section': 'task', 'request': 'purgeTask', 'taskId': taskid, 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=purgetaskjson)
     return resp.json()
 
 
-def tasksetSupertaskName(endpoint, certpath, accessKey, supertaskId, name):
-    setsupertaskname = {'section': 'task', 'request': 'setSupertaskName', 'supertaskId': supertaskId, 'name': name,
-                        'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=setsupertaskname)
+def tasksetsupertaskname(endpoint, certpath, accesskey, supertaskid, name):
+    tasksetsupertasknamejson = {'section': 'task', 'request': 'setSupertaskName', 'supertaskId': supertaskid,
+                                'name': name,
+                                'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=tasksetsupertasknamejson)
     return resp.json()
 
 
-def taskdeletetsupertask(endpoint, certpath, accessKey, supertaskid):
-    deletesupertaskjson = {'section': 'task', 'request': 'deleteSupertask', 'supertaskId': supertaskid,
-                           'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=deletesupertaskjson)
+def taskdeletesupertask(endpoint, certpath, accesskey, supertaskid):
+    taskdeletesupertaskjson = {'section': 'task', 'request': 'deleteSupertask', 'supertaskId': supertaskid,
+                               'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=taskdeletesupertaskjson)
     return resp.json()
 
 
-def archiveTask(endpoint, certpath, accessKey, taskId):
-    archivetask = {'section': 'task', 'request': 'archiveTask', 'taskId': taskId, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=archivetask)
+def archivetask(endpoint, certpath, accesskey, taskid):
+    archivetaskjson = {'section': 'task', 'request': 'archiveTask', 'taskId': taskid, 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=archivetaskjson)
     return resp.json()
 
 
-def archiveSupertask(endpoint, certpath, accessKey, supertaskId):
-    archivesupertask = {'section': 'task', 'request': 'archiveSupertask', 'supertaskId': supertaskId,
-                        'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=archivesupertask)
+def archivesupertask(endpoint, certpath, accesskey, supertaskid):
+    archivesupertaskjson = {'section': 'task', 'request': 'archiveSupertask', 'supertaskId': supertaskid,
+                            'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=archivesupertaskjson)
     return resp.json()
 
 
 # Preconfigured Tasks (pretask)
-def setPretaskPriority(endpoint, certpath, accessKey, pretaskId, priority):
-    setpretaskpriority = {'section': 'pretask', 'request': 'setPretaskPriority', 'pretaskId': pretaskId,
-                          'priority': priority, 'accessKey': accessKey}
+def setPretaskPriority(endpoint, certpath, accesskey, pretaskid, priority):
+    setpretaskpriority = {'section': 'pretask', 'request': 'setPretaskPriority', 'pretaskId': pretaskid,
+                          'priority': priority, 'accessKey': accesskey}
     resp = requests.post(endpoint, verify=certpath, json=setpretaskpriority)
     return resp.json()
 

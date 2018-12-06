@@ -222,102 +222,105 @@ def getconfig(endpoint, certpath, accesskey, configitem):
     return resp.json()
 
 
-def setconfig(endpoint, certpath, accessKey, configItem, value, force):
-    setconfigjson = {'section': 'config', 'request': 'setConfig', 'configItem': configItem, 'value': value,
+def setconfig(endpoint, certpath, accesskey, configitem, value, force):
+    setconfigjson = {'section': 'config', 'request': 'setConfig', 'configItem': configitem, 'value': value,
                      'force': force,
-                     'accessKey': accessKey}
+                     'accessKey': accesskey}
     resp = requests.post(endpoint, verify=certpath, json=setconfigjson)
     return resp.json()
 
 
 # Agents
-def listAgents(endpoint, certpath, accessKey):
-    listagents = {'section': 'agent', 'request': 'listAgents', 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=listagents)
+def listagents(endpoint, certpath, accesskey):
+    listagentsjson = {'section': 'agent', 'request': 'listAgents', 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=listagentsjson)
     return resp.json()
 
 
-def getAgent(endpoint, certpath, accessKey, agentId):
-    getagent = {'section': 'agent', 'request': 'get', 'agentId': agentId, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=getagent)
+def getagent(endpoint, certpath, accesskey, agentid):
+    getagentjson = {'section': 'agent', 'request': 'get', 'agentId': agentid, 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=getagentjson)
     return resp.json()
 
 
-def setAgentActive(endpoint, certpath, accessKey, agentId, active):
-    setagentactive = {'section': 'agent', 'request': 'setActive', 'active': active, 'agentId': agentId,
-                      'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=setagentactive)
+def setagentactive(endpoint, certpath, accesskey, agentid, active):
+    setagentactivejson = {'section': 'agent', 'request': 'setActive', 'active': active, 'agentId': agentid,
+                          'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=setagentactivejson)
     return resp.json()
 
 
-def changeAgentOwner(endpoint, certpath, accessKey, agentId, user):
-    changeagentowner = {'section': 'agent', 'request': 'changeOwner', 'user': user, 'agentId': agentId,
-                        'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=changeagentowner)
+def changeagentowner(endpoint, certpath, accesskey, agentid, user):
+    changeagentownerjson = {'section': 'agent', 'request': 'changeOwner', 'user': user, 'agentId': agentid,
+                            'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=changeagentownerjson)
     return resp.json()
 
 
-def setAgentName(endpoint, certpath, accessKey, agentId, name):
-    setagentname = {'section': 'agent', 'request': 'setName', 'name': name, 'agentId': agentId, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=setagentname)
+def setagentname(endpoint, certpath, accesskey, agentid, name):
+    setagentnamejson = {'section': 'agent', 'request': 'setName', 'name': name, 'agentId': agentid,
+                        'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=setagentnamejson)
     return resp.json()
 
 
-def setAgentCpuOnly(endpoint, certpath, accessKey, agentId, cpuOnly):
-    setagentcpuonly = {'section': 'agent', 'request': 'setCpuOnly', 'cpuOnly': cpuOnly, 'agentId': agentId,
-                       'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=setagentcpuonly)
+def setagentcpuonly(endpoint, certpath, accesskey, agentid, cpuonly):
+    setagentcpuonlyjson = {'section': 'agent', 'request': 'setCpuOnly', 'cpuOnly': cpuonly, 'agentId': agentid,
+                           'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=setagentcpuonlyjson)
     return resp.json()
 
 
-def setAgentExtraParams(endpoint, certpath, accessKey, agentId, extraParameters):
-    setagentextraparams = {'section': 'agent', 'request': 'setExtraParams', 'extraParameters': extraParameters,
-                           'agentId': agentId, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=setagentextraparams)
+def setagentextraparams(endpoint, certpath, accesskey, agentid, extraparameters):
+    setagentextraparamsjson = {'section': 'agent', 'request': 'setExtraParams', 'extraParameters': extraparameters,
+                               'agentId': agentid, 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=setagentextraparamsjson)
     return resp.json()
 
 
-def setAgentErrorFlag(endpoint, certpath, accessKey, agentId, ignoreErrors):
-    setagentextraparams = {'section': 'agent', 'request': 'setErrorFlag', 'ignoreErrors': ignoreErrors,
-                           'agentId': agentId, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=setagentextraparams)
+def setagenterrorflag(endpoint, certpath, accesskey, agentid, ignoreerrors):
+    setagentextraparamsjson = {'section': 'agent', 'request': 'setErrorFlag', 'ignoreErrors': ignoreerrors,
+                               'agentId': agentid, 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=setagentextraparamsjson)
     return resp.json()
 
 
-def setAgentTrusted(endpoint, certpath, accessKey, agentId, trusted):
-    setagenttrusted = {'section': 'agent', 'request': 'setTrusted', 'trusted': trusted, 'agentId': agentId,
-                       'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=setagenttrusted)
+def setagenttrusted(endpoint, certpath, accesskey, agentid, trusted):
+    setagenttrustedjson = {'section': 'agent', 'request': 'setTrusted', 'trusted': trusted, 'agentId': agentid,
+                           'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=setagenttrustedjson)
     return resp.json()
 
 
-def listAgentVouchers(endpoint, certpath, accessKey):
-    listvouchers = {'section': 'agent', 'request': 'listVouchers', 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=listvouchers)
+def listagentvouchers(endpoint, certpath, accesskey):
+    listagentvouchersjson = {'section': 'agent', 'request': 'listVouchers', 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=listagentvouchersjson)
     return resp.json()
 
 
-def createAgentVoucherRandom(endpoint, certpath, accessKey):
-    createvoucher = {'section': 'agent', 'request': 'createVoucher', 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=createvoucher)
+def createagentvoucherrandom(endpoint, certpath, accesskey):
+    createagentvoucherrandomjson = {'section': 'agent', 'request': 'createVoucher', 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=createagentvoucherrandomjson)
     return resp.json()
 
 
-def createAgentVoucher(endpoint, certpath, accessKey, voucher):
-    createvoucher = {'section': 'agent', 'request': 'createVoucher', 'voucher': voucher, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=createvoucher)
+def createagentvoucher(endpoint, certpath, accesskey, voucher):
+    createagentvoucherjson = {'section': 'agent', 'request': 'createVoucher', 'voucher': voucher,
+                              'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=createagentvoucherjson)
     return resp.json()
 
 
-def deleteAgentVoucher(endpoint, certpath, accessKey, voucher):
-    deletevoucher = {'section': 'agent', 'request': 'deleteVoucher', 'voucher': voucher, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=deletevoucher)
+def deleteagentvoucher(endpoint, certpath, accesskey, voucher):
+    deleteagentvoucherjson = {'section': 'agent', 'request': 'deleteVoucher', 'voucher': voucher,
+                              'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=deleteagentvoucherjson)
     return resp.json()
 
 
-def getAgentBinaries(endpoint, certpath, accessKey):
-    getagentbinary = {'section': 'agent', 'request': 'getBinaries', 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=getagentbinary)
+def getagentbinaries(endpoint, certpath, accesskey):
+    getagentbinariesjson = {'section': 'agent', 'request': 'getBinaries', 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=getagentbinariesjson)
     return resp.json()
 
 

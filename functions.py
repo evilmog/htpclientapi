@@ -669,8 +669,8 @@ def deletehashlist(endpoint, certpath, accesskey, hashlistid):
     return resp.json()
 
 
-def gethash(endpoint, certpath, accesskey, gethash):
-    gethashjson = {'section': 'hashlist', 'request': 'getHash', 'hash': gethash, 'accessKey': accesskey}
+def gethash(endpoint, certpath, accesskey, gethashentry):
+    gethashjson = {'section': 'hashlist', 'request': 'getHash', 'hash': gethashentry, 'accessKey': accesskey}
     resp = requests.post(endpoint, verify=certpath, json=gethashjson)
     return resp.json()
 

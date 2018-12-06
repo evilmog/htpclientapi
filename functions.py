@@ -593,9 +593,6 @@ def createHashlist(endpoint, certpath, accessKey, name, isSalted, isSecret, isHe
                       'isSecret': isSecret, 'isHexSalt': isHexSalt, 'separator': separator, 'format': format,
                       'hashtypeId': hashtypeId, 'accessGroupId': accessGroupId, 'data': data, 'useBrain': useBrain,
                       'brainFeatures': brainFeatures, 'accessKey': accessKey}
-    print "JSON:"
-    print createhashlist
-    print " "
     resp = requests.post(endpoint, verify=certpath, json=createhashlist)
     return resp.json()
 

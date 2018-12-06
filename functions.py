@@ -485,7 +485,7 @@ def getHash(endpoint, certpath, accessKey, hash):
   resp = requests.post(endpoint, verify=certpath, json=gethash)
   return resp.json()
 
-def getHashlistCracked(endpoint, certpath, accessKey, hashlistId)
+def getHashlistCracked(endpoint, certpath, accessKey, hashlistId):
   gethashlistcracked = {'section':'hashlist', 'request':'getCracked', 'hashlistId':hashlistId, 'accessKey':accessKey}
   resp = requests.post(endpoint, verify=certpath, json=gethashlistcracked)
   return resp.json()

@@ -485,6 +485,11 @@ def getHash(endpoint, certpath, accessKey, hash):
   resp = requests.post(endpoint, verify=certpath, json=gethash)
   return resp.json()
 
+def getHashlistCracked(endpoint, certpath, accessKey, hashlistId)
+  gethashlistcracked = {'section':'hashlist', 'request':'getCracked', 'hashlistId':hashlistId, 'accessKey':accessKey}
+  resp = requests.post(endpoint, verify=certpath, json=gethashlistcracked)
+  return resp.json()
+
 # Superhashlists - superhashlist
 def listSuperhashlists(endpoint, certpath, accessKey):
   listsuperhashlists = { 'section': 'superhashlist', 'request': 'listSuperhashlists', "accessKey": accessKey }

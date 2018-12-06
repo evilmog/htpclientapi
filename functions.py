@@ -56,68 +56,70 @@ def setuserpassword(endpoint, certpath, accesskey, userid, password):
     return resp.json()
 
 
-def setUserRightGroup(endpoint, certpath, accessKey, userId, rightGroupId):
-    setuserrightgroup = {'section': 'user', 'request': 'setUserRightGroup', 'userId': userId, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=setuserrightgroup)
+def setuserrightgroup(endpoint, certpath, accesskey, userid, rightgroupid):
+    setuserrightgroupjson = {'section': 'user', 'request': 'setUserRightGroup', 'userId': userid,
+                             'rightGroupId': rightgroupid, 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=setuserrightgroupjson)
     return resp.json()
 
 
 # Group Section
-def listGroups(endpoint, certpath, accessKey):
-    listgroups = {'section': 'group', 'request': 'listGroups', 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=listgroups)
+def listgroups(endpoint, certpath, accesskey):
+    listgroupsjson = {'section': 'group', 'request': 'listGroups', 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=listgroupsjson)
     return resp.json()
 
 
-def getGroup(endpoint, certpath, accessKey, groupId):
-    getgroup = {'section': 'group', 'request': 'getGroup', 'groupId': groupId, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=getgroup)
+def getgroup(endpoint, certpath, accesskey, groupid):
+    getgroupjson = {'section': 'group', 'request': 'getGroup', 'groupId': groupid, 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=getgroupjson)
     return resp.json()
 
 
-def createGroup(endpoint, certpath, accessKey, name):
-    creategroup = {'section': 'group', 'request': 'createGroup', 'name': name, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=creategroup)
+def creategroup(endpoint, certpath, accesskey, name):
+    creategroupjson = {'section': 'group', 'request': 'createGroup', 'name': name, 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=creategroupjson)
     return resp.json()
 
 
-def addAgent(endpoint, certpath, accessKey, groupId, agentId):
-    addagent = {'section': 'group', 'request': 'addAgent', 'groupId': groupId, 'agentId': agentId,
-                'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=addagent)
+def addagent(endpoint, certpath, accesskey, groupid, agentid):
+    addagentjson = {'section': 'group', 'request': 'addAgent', 'groupId': groupid, 'agentId': agentid,
+                    'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=addagentjson)
     return resp.json()
 
 
-def removeAgent(endpoint, certpath, accessKey, groupId, agentId):
-    removeagent = {'section': 'group', 'request': 'removegent', 'groupId': groupId, 'agentId': agentId,
-                   'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=removeagent)
+def removeagent(endpoint, certpath, accesskey, groupid, agentid):
+    removeagentjson = {'section': 'group', 'request': 'removegent', 'groupId': groupid, 'agentId': agentid,
+                       'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=removeagentjson)
     return resp.json()
 
 
-def addUser(endpoint, certpath, accessKey, groupId, userId):
-    adduser = {'section': 'group', 'request': 'addUser', 'groupId': groupId, 'userId': userId, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=adduser)
+def adduser(endpoint, certpath, accesskey, groupid, userid):
+    adduserjson = {'section': 'group', 'request': 'addUser', 'groupId': groupid, 'userId': userid,
+                   'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=adduserjson)
     return resp.json()
 
 
-def removeUser(endpoint, certpath, accessKey, groupId, userId):
-    removeuser = {'section': 'group', 'request': 'removeUser', 'groupId': groupId, 'userId': userId,
-                  'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=removeuser)
+def removeuser(endpoint, certpath, accesskey, groupid, userid):
+    removeuserjson = {'section': 'group', 'request': 'removeUser', 'groupId': groupid, 'userId': userid,
+                      'accesskey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=removeuserjson)
     return resp.json()
 
 
-def deleteGroup(endpoint, certpath, accessKey, groupId):
-    deletegroup = {'section': 'group', 'request': 'deleteGroup', 'groupId': groupId, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=deletegroup)
+def deletegroup(endpoint, certpath, accesskey, groupid):
+    deletegroupjson = {'section': 'group', 'request': 'deleteGroup', 'groupId': groupid, 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=deletegroupjson)
     return resp.json()
 
 
 # Access Section
-def listAccessGroups(endpoint, certpath, accessKey):
-    listgroups = {'section': 'access', 'request': 'listGroups', 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=listgroups)
+def listaccessgroups(endpoint, certpath, accesskey):
+    listgroupsjson = {'section': 'access', 'request': 'listGroups', 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=listgroupsjson)
     return resp.json()
 
 

@@ -177,48 +177,48 @@ def setaccesspermissions(endpoint, certpath, accesskey, rightgroupid, viewhashli
 
 # Account Section
 
-def getInformation(endpoint, certpath, accessKey):
-    getinformation = {'section': 'account', "request": "getInformation", 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=getinformation)
+def getinformation(endpoint, certpath, accesskey):
+    getinformationjson = {'section': 'account', "request": "getInformation", 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=getinformationjson)
     return resp.json()
 
 
-def setEmail(endpoint, certpath, accessKey, email):
-    setemail = {'section': 'account', "request": "setEmail", "email": email, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=setemail)
+def setemail(endpoint, certpath, accesskey, email):
+    setemailjson = {'section': 'account', "request": "setEmail", "email": email, 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=setemailjson)
     return resp.json()
 
 
-def setSessionLength(endpoint, certpath, accessKey, sessionLength):
-    setsessionlength = {'section': 'account', 'request': 'setSessionLength', 'sessionLength': sessionLength,
-                        'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=setsessionlength)
+def setsessionlength(endpoint, certpath, accesskey, sessionlength):
+    setsessionlengthjson = {'section': 'account', 'request': 'setSessionLength', 'sessionLength': sessionlength,
+                            'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=setsessionlengthjson)
     return resp.json()
 
 
-def changePassword(endpoint, certpath, accessKey, newPassword, oldPassword):
-    changepassword = {'section': 'account', 'request': 'changePassword', 'newPassword': newPassword,
-                      'oldPassword': oldPassword, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=changepassword)
+def changepassword(endpoint, certpath, accesskey, newpassword, oldpassword):
+    changepasswordjson = {'section': 'account', 'request': 'changePassword', 'newPassword': newpassword,
+                          'oldPassword': oldpassword, 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=changepasswordjson)
     return resp.json()
 
 
 # Server Config
-def listSections(endpoint, certpath, accessKey):
-    listsections = {'section': 'config', 'request': 'listSections', 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=listsections)
+def listsections(endpoint, certpath, accesskey):
+    listsectionsjson = {'section': 'config', 'request': 'listSections', 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=listsectionsjson)
     return resp.json()
 
 
-def listConfig(endpoint, certpath, accessKey):
-    listconfig = {'section': 'config', 'request': 'listConfig', 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=listconfig)
+def listconfig(endpoint, certpath, accesskey):
+    listconfigjson = {'section': 'config', 'request': 'listConfig', 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=listconfigjson)
     return resp.json()
 
 
-def getConfig(endpoint, certpath, accessKey, configItem):
-    getconfig = {'section': 'config', 'request': 'getConfig', 'configItem': configItem, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=getconfig)
+def getconfig(endpoint, certpath, accesskey, configitem):
+    getconfigjson = {'section': 'config', 'request': 'getConfig', 'configItem': configitem, 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=getconfigjson)
     return resp.json()
 
 

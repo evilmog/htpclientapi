@@ -123,50 +123,55 @@ def listaccessgroups(endpoint, certpath, accesskey):
     return resp.json()
 
 
-def getAccessGroup(endpoint, certpath, accessKey, rightGroupId):
-    getgroup = {'section': 'access', 'request': 'getGroup', 'rightGroupId': rightGroupId, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=getgroup)
+def getaccessgroup(endpoint, certpath, accesskey, rightgroupid):
+    getaccessgroupjson = {'section': 'access', 'request': 'getGroup', 'rightGroupId': rightgroupid,
+                          'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=getaccessgroupjson)
     return resp.json()
 
 
-def createAccessGroup(endpoint, certpath, accessKey, name):
-    creategroup = {'section': 'access', 'request': 'createGroup', 'name': name, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=creategroup)
+def createaccessgroup(endpoint, certpath, accesskey, name):
+    createaccessgroupjson = {'section': 'access', 'request': 'createGroup', 'name': name, 'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=createaccessgroupjson)
     return resp.json()
 
 
-def deleteAccessGroup(endpoint, certpath, accessKey, rightGroupId):
-    deletegroup = {'section': 'access', 'request': 'deleteGroup', 'rightGroupId': rightGroupId, 'accessKey': accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=deletegroup)
+def deleteaccessgroup(endpoint, certpath, accesskey, rightgroupid):
+    deleteaccessgroupjson = {'section': 'access', 'request': 'deleteGroup', 'rightGroupId': rightgroupid,
+                             'accessKey': accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=deleteaccessgroupjson)
     return resp.json()
 
 
-def setAccessPermissions(endpoint, certpath, accessKey, rightGroupId, viewHashlistAccess, manageHashlistAccess,
-                         createHashlistAccess, createSuperhashlistAccess, viewHashesAccess, viewAgentsAccess,
-                         manageAgentAccess, createAgentAccess, viewTaskAccess, runTaskAccess, createTaskAccess,
-                         manageTaskAccess, viewPretaskAccess, createPretaskAccess, managePretaskAccess,
-                         viewSupertaskAccess, createSupertaskAccess, manageSupertaskAccess, viewFileAccess,
-                         manageFileAccess, addFileAccess, crackerBinaryAccess, serverConfigAccess, userConfigAccess):
-    setpermissions = {"section": "access", "request": "setPermissions", "rightGroupId": rightGroupId,
-                      "permissions": {"viewHashlistAccess": viewHashlistAccess,
-                                      "manageHashlistAccess": manageHashlistAccess,
-                                      "createHashlistAccess": createHashlistAccess,
-                                      "createSuperhashlistAccess": createSuperhashlistAccess,
-                                      "viewHashesAccess": viewHashesAccess, "viewAgentsAccess": viewAgentsAccess,
-                                      "manageAgentAccess": manageAgentAccess, "createAgentAccess": createAgentAccess,
-                                      "viewTaskAccess": viewTaskAccess, "runTaskAccess": runTaskAccess,
-                                      "createTaskAccess": createTaskAccess, "manageTaskAccess": manageTaskAccess,
-                                      "viewPretaskAccess": viewPretaskAccess,
-                                      "createPretaskAccess": createPretaskAccess,
-                                      "managePretaskAccess": managePretaskAccess,
-                                      "viewSupertaskAccess": viewSupertaskAccess,
-                                      "createSupertaskAccess": createSupertaskAccess,
-                                      "manageSupertaskAccess": manageSupertaskAccess, "viewFileAccess": viewFileAccess,
-                                      "manageFileAccess": manageFileAccess, "addFileAccess": addFileAccess,
-                                      "crackerBinaryAccess": crackerBinaryAccess,
-                                      "serverConfigAccess": serverConfigAccess, "userConfigAccess": userConfigAccess},
-                      "accessKey": accessKey}
-    resp = requests.post(endpoint, verify=certpath, json=setpermissions)
+def setaccesspermissions(endpoint, certpath, accesskey, rightgroupid, viewhashlistaccess, managehashlistaccess,
+                         createhashlistaccess, createsuperhashlistaccess, viewhashesaccess, viewagentsaccess,
+                         manageagentaccess, createagentaccess, viewtaskaccess, runtaskaccess, createtaskaccess,
+                         managetaskaccess, viewpretaskaccess, createpretaskaccess, managepretaskaccess,
+                         viewsupertaskaccess, createsupertaskaccess, managesupertaskaccess, viewfileaccess,
+                         managefileaccess, addfileaccess, crackerbinaryaccess, serverconfigaccess, userconfigaccess):
+    setpermissionsjson = {"section": "access", "request": "setPermissions", "rightGroupId": rightgroupid,
+                          "permissions": {"viewHashlistAccess": viewhashlistaccess,
+                                          "manageHashlistAccess": managehashlistaccess,
+                                          "createHashlistAccess": createhashlistaccess,
+                                          "createSuperhashlistAccess": createsuperhashlistaccess,
+                                          "viewHashesAccess": viewhashesaccess, "viewAgentsAccess": viewagentsaccess,
+                                          "manageAgentAccess": manageagentaccess,
+                                          "createAgentAccess": createagentaccess,
+                                          "viewTaskAccess": viewtaskaccess, "runTaskAccess": runtaskaccess,
+                                          "createTaskAccess": createtaskaccess, "manageTaskAccess": managetaskaccess,
+                                          "viewPretaskAccess": viewpretaskaccess,
+                                          "createPretaskAccess": createpretaskaccess,
+                                          "managePretaskAccess": managepretaskaccess,
+                                          "viewSupertaskAccess": viewsupertaskaccess,
+                                          "createSupertaskAccess": createsupertaskaccess,
+                                          "manageSupertaskAccess": managesupertaskaccess,
+                                          "viewFileAccess": viewfileaccess,
+                                          "manageFileAccess": managefileaccess, "addFileAccess": addfileaccess,
+                                          "crackerBinaryAccess": crackerbinaryaccess,
+                                          "serverConfigAccess": serverconfigaccess,
+                                          "userConfigAccess": userconfigaccess},
+                          "accessKey": accesskey}
+    resp = requests.post(endpoint, verify=certpath, json=setpermissionsjson)
     return resp.json()
 
 

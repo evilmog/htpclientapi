@@ -90,7 +90,7 @@ def addagent(endpoint, certpath, accesskey, groupid, agentid):
 
 
 def removeagent(endpoint, certpath, accesskey, groupid, agentid):
-    removeagentjson = {'section': 'group', 'request': 'removegent', 'groupId': groupid, 'agentId': agentid,
+    removeagentjson = {'section': 'group', 'request': 'removeAgent', 'groupId': groupid, 'agentId': agentid,
                        'accessKey': accesskey}
     resp = requests.post(endpoint, verify=certpath, json=removeagentjson)
     return resp.json()

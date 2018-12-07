@@ -689,26 +689,26 @@ def listsuperhashlists(endpoint, certpath, accesskey):
     return resp.json()
 
 
-def getsuperhashlist(endpoint, certpath, accessKey, superhashlistId):
+def getsuperhashlist(endpoint, certpath, accesskey, superhashlistid):
     getsuperhashlistjson = {'section': 'superhashlist', 'request': 'getSuperhashlist',
-                            'superhashlistId': superhashlistId,
-                            'accessKey': accessKey}
+                            'superhashlistId': superhashlistid,
+                            'accessKey': accesskey}
     resp = requests.post(endpoint, verify=certpath, json=getsuperhashlistjson)
     return resp.json()
 
 
 # hashlists must be in the format of [1,2]
-def createsuperhashlist(endpoint, certpath, accessKey, name, hashlists):
+def createsuperhashlist(endpoint, certpath, accesskey, superhashlistname, hashlists):
     createsuperhashlistjson = {'section': 'superhashlist', 'request': 'createSuperhashlist',
-                               'name': 'New Superhashlist',
-                               'hashlists': hashlists, 'accessKey': accessKey}
+                               'name': superhashlistname,
+                               'hashlists': hashlists, 'accessKey': accesskey}
     resp = requests.post(endpoint, verify=certpath, json=createsuperhashlistjson)
     return resp.json()
 
 
-def deletesuperhashlist(endpoint, certpath, accessKey, superhashlistId):
+def deletesuperhashlist(endpoint, certpath, accesskey, superhashlistid):
     deletesuperhashlistjson = {'section': 'superhashlist"', 'request': 'deleteSuperhashlist',
-                               'superhashlistId': superhashlistId, 'accessKey': accessKey}
+                               'superhashlistId': superhashlistid, 'accessKey': accesskey}
     resp = requests.post(endpoint, verify=certpath, json=deletesuperhashlistjson)
     return resp.json()
 
@@ -717,41 +717,41 @@ def deletesuperhashlist(endpoint, certpath, accessKey, superhashlistId):
 # 0 - wordlist
 # 1 - rule
 
-def listfiles(endpoint, certpath, accessKey):
-    listfilesjson = {'section': 'file', 'request': 'listFiles', 'accessKey': accessKey}
+def listfiles(endpoint, certpath, accesskey):
+    listfilesjson = {'section': 'file', 'request': 'listFiles', 'accessKey': accesskey}
     resp = requests.post(endpoint, verify=certpath, json=listfilesjson)
     return resp.json()
 
 
-def getfile(endpoint, certpath, accessKey, fileId):
-    getfilejson = {'section': 'file', 'request': 'getFile', 'fileId': fileId, 'accessKey': accessKey}
+def getfile(endpoint, certpath, accesskey, fileid):
+    getfilejson = {'section': 'file', 'request': 'getFile', 'fileId': fileid, 'accessKey': accesskey}
     resp = requests.post(endpoint, verify=certpath, json=getfilejson)
     return resp.json()
 
 
-def renamefile(endpoint, certpath, accessKey, fileId, filename):
-    renamefilejson = {'section': 'file', 'request': 'renameFile', 'fileId': fileId, 'filename': filename,
-                      'accessKey': accessKey}
+def renamefile(endpoint, certpath, accesskey, fileid, filename):
+    renamefilejson = {'section': 'file', 'request': 'renameFile', 'fileId': fileid, 'filename': filename,
+                      'accessKey': accesskey}
     resp = requests.post(endpoint, verify=certpath, json=renamefilejson)
     return resp.json()
 
 
-def setfilesecret(endpoint, certpath, accessKey, fileId, isSecret):
-    setfilesecretjson = {'section': 'file', 'request': 'setSecret', 'fileId': fileId, 'isSecret': isSecret,
-                         'accessKey': accessKey}
+def setfilesecret(endpoint, certpath, accesskey, fileid, issecret):
+    setfilesecretjson = {'section': 'file', 'request': 'setSecret', 'fileId': fileid, 'isSecret': issecret,
+                         'accessKey': accesskey}
     resp = requests.post(endpoint, verify=certpath, json=setfilesecretjson)
     return resp.json()
 
 
-def deletefile(endpoint, certpath, accessKey, fileId):
-    deletefilejson = {'section': 'file', 'request': 'deleteFile', 'fileId': fileId, 'accessKey': accessKey}
+def deletefile(endpoint, certpath, accesskey, fileid):
+    deletefilejson = {'section': 'file', 'request': 'deleteFile', 'fileId': fileid, 'accessKey': accesskey}
     resp = requests.post(endpoint, verify=certpath, json=deletefilejson)
     return resp.json()
 
 
-def setfiletype(endpoint, certpath, accessKey, fileId, fileType):
-    setfiletypejson = {'section': 'file', 'request': 'setFileType', 'fileId': fileId, 'fileType': fileType,
-                       'accessKey': accessKey}
+def setfiletype(endpoint, certpath, accesskey, fileid, filetype):
+    setfiletypejson = {'section': 'file', 'request': 'setFileType', 'fileId': fileid, 'fileType': filetype,
+                       'accessKey': accesskey}
     resp = requests.post(endpoint, verify=certpath, json=setfiletypejson)
     return resp.json()
 
@@ -762,62 +762,62 @@ def setfiletype(endpoint, certpath, accessKey, fileId, fileType):
 # import - data = filename in the import dir
 # filename doesn't matter in url or import
 
-def addfile(endpoint, certpath, accessKey, filename, fileType, source, accessGroupId, data):
-    addfilejson = {'section': 'file', 'request': 'addFile', 'filename': filename, 'fileType': fileType,
+def addfile(endpoint, certpath, accesskey, filename, filetype, source, accessgroupid, data):
+    addfilejson = {'section': 'file', 'request': 'addFile', 'filename': filename, 'fileType': filetype,
                    'source': source,
-                   'accessGroupId': accessGroupId, 'data': data, 'accessKey': accessKey}
+                   'accessGroupId': accessgroupid, 'data': data, 'accessKey': accesskey}
     resp = requests.post(endpoint, verify=certpath, json=addfilejson)
     return resp.json()
 
 
 # crackers - cracker
-def listcrackers(endpoint, certpath, accessKey):
-    listcrackersjson = {'section': 'cracker', 'request': 'listCrackers', 'accessKey': accessKey}
+def listcrackers(endpoint, certpath, accesskey):
+    listcrackersjson = {'section': 'cracker', 'request': 'listCrackers', 'accessKey': accesskey}
     resp = requests.post(endpoint, verify=certpath, json=listcrackersjson)
     return resp.json()
 
 
-def getcracker(endpoint, certpath, accessKey, crackerTypeId):
-    getcrackerjson = {'section': 'cracker', 'request': 'getCracker', 'crackerTypeId': crackerTypeId,
-                      'accessKey': accessKey}
+def getcracker(endpoint, certpath, accesskey, crackertypeid):
+    getcrackerjson = {'section': 'cracker', 'request': 'getCracker', 'crackerTypeId': crackertypeid,
+                      'accessKey': accesskey}
     resp = requests.post(endpoint, verify=certpath, json=getcrackerjson)
     return resp.json()
 
 
-def deletecracker(endpoint, certpath, accessKey, crackerTypeId):
-    deletecrackerjson = {'section': 'cracker', 'request': 'deleteCracker', 'crackerTypeId': crackerTypeId,
-                         'accessKey': accessKey}
+def deletecracker(endpoint, certpath, accesskey, crackertypeid):
+    deletecrackerjson = {'section': 'cracker', 'request': 'deleteCracker', 'crackerTypeId': crackertypeid,
+                         'accessKey': accesskey}
     resp = requests.post(endpoint, verify=certpath, json=deletecrackerjson)
     return resp.json()
 
 
-def deleteversion(endpoint, certpath, accessKey, crackerVersionId):
-    deleteversionjson = {'section': 'cracker', 'request': 'deleteVersion', 'crackerVersionId': crackerVersionId,
-                         'accessKey': accessKey}
+def deleteversion(endpoint, certpath, accesskey, crackerversionid):
+    deleteversionjson = {'section': 'cracker', 'request': 'deleteVersion', 'crackerVersionId': crackerversionid,
+                         'accessKey': accesskey}
     resp = requests.post(endpoint, verify=certpath, json=deleteversionjson)
     return resp.json()
 
 
-def createcracker(endpoint, certpath, accessKey, crackerName):
-    createcrackerjson = {'section': 'cracker', 'request': 'createCracker', 'crackerName': crackerName,
-                         'accessKey': accessKey}
+def createcracker(endpoint, certpath, accesskey, crackername):
+    createcrackerjson = {'section': 'cracker', 'request': 'createCracker', 'crackerName': crackername,
+                         'accessKey': accesskey}
     resp = requests.post(endpoint, verify=certpath, json=createcrackerjson)
     return resp.json()
 
 
-def addversion(endpoint, certpath, accessKey, crackerTypeId, crackerBinaryVersion, crackerBinaryBasename,
-               crackerBinaryUrl):
-    addversionjson = {'section': 'cracker', 'request': 'addVersion', 'crackerTypeId': crackerTypeId,
-                      'crackerBinaryVersion': crackerBinaryVersion, 'crackerBinaryBasename': crackerBinaryBasename,
-                      'crackerBinaryUrl': crackerBinaryUrl, 'accessKey': accessKey}
+def addversion(endpoint, certpath, accesskey, crackertypeid, crackerbinaryversion, crackerbinarybasename,
+               crackerbinaryurl):
+    addversionjson = {'section': 'cracker', 'request': 'addVersion', 'crackerTypeId': crackertypeid,
+                      'crackerBinaryVersion': crackerbinaryversion, 'crackerBinaryBasename': crackerbinarybasename,
+                      'crackerBinaryUrl': crackerbinaryurl, 'accessKey': accesskey}
     resp = requests.post(endpoint, verify=certpath, json=addversionjson)
     return resp.json()
 
 
-def updateversion(endpoint, certpath, accessKey, crackerVersionId, crackerBinaryVersion, crackerBinaryBasename,
-                  crackerBinaryUrl):
-    updateversionjson = {'section': 'cracker', 'request': 'updateVersion', 'crackerVersionId': crackerVersionId,
-                         'crackerBinaryVersion': crackerBinaryVersion, 'crackerBinaryBasename': crackerBinaryBasename,
-                         'crackerBinaryUrl': crackerBinaryUrl, 'accessKey': accessKey}
+def updateversion(endpoint, certpath, accesskey, crackerversionid, crackerbinaryversion, crackerbinarybasename,
+                  crackerbinaryurl):
+    updateversionjson = {'section': 'cracker', 'request': 'updateVersion', 'crackerVersionId': crackerversionid,
+                         'crackerBinaryVersion': crackerbinaryversion, 'crackerBinaryBasename': crackerbinarybasename,
+                         'crackerBinaryUrl': crackerbinaryurl, 'accessKey': accesskey}
     resp = requests.post(endpoint, verify=certpath, json=updateversionjson)
     return resp.json()

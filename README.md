@@ -48,17 +48,14 @@ python getcert.py > cert.pem
 now as an example we will list the users
 
 ```
-import config as cfg
 from htpclientapi.functions import *
 
-apikey = cfg.data['apikey']
-certpath = cfg.data['certpath']
+import config
 
-endpoint = cfg.data['host'] + ':' + cfg.data['port'] + '/api/user.php'
-data = listusers(endpoint, certpath, apikey)
+data = listusers()
 
 for user in data["users"]:
-    userdata = getuser(endpoint, certpath, apikey, str(user["userId"]))
+    userdata = getuser(str(user["userId"]))
     print "UserId:          " + str(userdata["userId"])
     print "  Username:        " + str(userdata["username"])
     print "  e-mail:          " + str(userdata["email"])
@@ -74,18 +71,15 @@ for user in data["users"]:
 This is a fairly easy example, lets say now that we want to create a hashlist, we can do the following:
 
 ```
-import config as cfg
-import base64
 from htpclientapi.functions import *
 
-apikey = cfg.data['apikey']
-certpath = cfg.data['certpath']
-endpoint = cfg.data['host'] + ':' + cfg.data['port'] + '/api/user.php'
+import config
+import base64
 
 data = open("ntlm.hash", "r").read()
 encoded = base64.b64encode(data)
 
-result = createhashlist(endpoint, certpath, apikey, "EvilMog - Hashes - NTLM", False, True, False, ":", 0, 1000, 1, encoded, False,
+result = createhashlist("EvilMog - Hashes - NTLM", False, True, False, ":", 0, 1000, 1, encoded, False,
                         0)
 print result
 ```
@@ -94,24 +88,19 @@ print result
 If we wanted to create 100 mask attacks on the hashlist we could do something like this. First get the pathwell masks from https://blog.korelogic.com/blog/2014/04/04/pathwell_topologies and make a file called pathwell.txt and from there run this script
 
 ```
-import config as cfg
 from htpclientapi.functions import *
+import config
 
 hashlistid = str(21) # replace this
 priority = 102 # replace this if you want it higher or lower
 # benchmark = "runtime"
 benchmark = "speed"
 
-apikey = cfg.data['apikey']
-certpath = cfg.data['certpath']
-
-endpoint = cfg.data['host'] + ':' + cfg.data['port'] + '/api/user.php'
-
 pathwellfile = open("pathwell.txt", 'r')
 for line in pathwellfile:
     priority = priority - 1
     pmask = line.rstrip()
-    newtask = createtask(endpoint, certpath, apikey,
+    newtask = createtask(
                          ("PATHWELL -a3 - " + pmask), hashlistid,
                          ("#HL# -a 3 " + pmask), 1200, 5, benchmark,
                          "#FFFFFF", False, False, 0, 1, str(priority), [], False)
@@ -120,17 +109,16 @@ for line in pathwellfile:
 
 # List Cracked Hashes per Task
 ```
-import config as cfg
 from htpclientapi.functions import *
 
-apikey = cfg.data['apikey']
-certpath = cfg.data['certpath']
+import config
+
 taskId = '361'
 
 endpoint = cfg.data['host'] + ':' + cfg.data['port'] + '/api/user.php'
 data = listtasks(endpoint, certpath, apikey)
 
-results = gettaskcracked(endpoint, certpath, apikey, taskId)
+results = gettaskcracked(taskId)
 
 if results['response'] == 'OK':
     for result in results['cracked']:
@@ -138,19 +126,15 @@ if results['response'] == 'OK':
 ```
 # Get all cracked hashes for NTLM hashlists
 ```
-import config as cfg
 from htpclientapi.functions import *
 
+import config
 
-apikey = cfg.data['apikey']
-certpath = cfg.data['certpath']
-
-endpoint = cfg.data['host'] + ':' + cfg.data['port'] + '/api/user.php'
-data = listhashlists(endpoint, certpath, apikey)
+data = listhashlists()
 
 for hashlist in data['hashlists']:
   if hashlist['hashtypeId'] == 1000:
-    crackeddata = gethashlistcracked(endpoint, certpath, apikey, hashlist['hashlistId'])
+    crackeddata = gethashlistcracked(hashlist['hashlistId'])
     for crackedhashlist in crackeddata['cracked']:
       print crackedhashlist['plain']
 ```

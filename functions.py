@@ -6,9 +6,9 @@ with open('config.json') as json_data_file:
 
 requests.packages.urllib3.disable_warnings()
 
-accesskey = cfg.confdata['apikey']
-certpath = cfg.confdata['certpath']
-endpoint = cfg.confdata['endpoint'] + '/api/user.php'
+accesskey = confdata['apikey']
+certpath = confdata['certpath']
+endpoint = confdata['endpoint'] + '/api/user.php'
 
 
 # Test Section
@@ -98,7 +98,8 @@ def addagent(groupid, agentid):
 
 
 def removeagent(groupid, agentid):
-    removeagentjson = {'section': 'group', 'request': 'removegent', 'groupId': groupid, 'agentId': agentid,
+    removeagentjson = {'section': 'group', 'request': 'removeAgent', 'groupId': groupid, 'agentId': agentid,
+
                        'accessKey': accesskey}
     resp = requests.post(endpoint, verify=certpath, json=removeagentjson)
     return resp.json()

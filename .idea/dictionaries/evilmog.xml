@@ -28,6 +28,7 @@
       <w>changepasswordjson</w>
       <w>chunkid</w>
       <w>chunksize</w>
+      <w>confdata</w>
       <w>configitem</w>
       <w>cpuonly</w>
       <w>crackerbinaryaccess</w>
@@ -114,6 +115,7 @@
       <w>getgroup</w>
       <w>getgroupjson</w>
       <w>gethash</w>
+      <w>gethashentry</w>
       <w>gethashjson</w>
       <w>gethashlist</w>
       <w>gethashlistcracked</w>
@@ -150,6 +152,7 @@
       <w>issalted</w>
       <w>issecret</w>
       <w>issmall</w>
+      <w>listaccessgroups</w>
       <w>listagents</w>
       <w>listagentsjson</w>
       <w>listagentvouchers</w>
@@ -184,6 +187,8 @@
       <w>managepretaskaccess</w>
       <w>managesupertaskaccess</w>
       <w>managetaskaccess</w>
+      <w>newpassword</w>
+      <w>oldpassword</w>
       <w>optimizedflag</w>
       <w>pretask</w>
       <w>pretaskid</w>
@@ -203,6 +208,7 @@
       <w>runsupertaskjson</w>
       <w>runtaskaccess</w>
       <w>serverconfigaccess</w>
+      <w>sessionlength</w>
       <w>setaccesspermissions</w>
       <w>setagentactive</w>
       <w>setagentactivejson</w>

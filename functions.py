@@ -2,7 +2,7 @@ import requests
 import json
 import config as cfg
 
-apikey = cfg.data['apikey']
+accesskey = cfg.data['apikey']
 certpath = cfg.data['certpath']
 endpoint = cfg.data['endpoint'] + '/api/user.php'
 

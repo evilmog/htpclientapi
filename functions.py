@@ -1,15 +1,12 @@
 import requests
 import json
+import config as cfg
 
-with open('config.json') as json_data_file:
-    confdata = json.load(json_data_file)
+apikey = cfg.data['apikey']
+certpath = cfg.data['certpath']
+endpoint = cfg.data['endpoint'] + '/api/user.php'
 
 requests.packages.urllib3.disable_warnings()
-
-accesskey = confdata['apikey']
-certpath = confdata['certpath']
-endpoint = confdata['endpoint'] + '/api/user.php'
-
 
 # Test Section
 def test_connection():

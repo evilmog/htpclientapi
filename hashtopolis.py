@@ -40,9 +40,7 @@ class HashtoSection:
                     "\\\\color\{blue\}\s*\\\\begin\{verbatim\}(.*?)\s*\\\\end\{verbatim\}",
                     section_handle.read(), re.S):
                 temp_json = json.loads(function_definition.replace("\n", ""))
-                self.__dict__[temp_json["request"]] = lambda request=temp_json["request"],
-                                                             **kwargs: self.default_method(request=request,
-                                                                                           **kwargs)
+                self.__dict__[temp_json["request"]] = lambda request=temp_json["request"], **kwargs: self.default_method(request=request,**kwargs)
                 self.function_definitions[temp_json["request"]] = temp_json
 
     def default_method(self, request, **kwargs):

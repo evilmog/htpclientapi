@@ -8,64 +8,34 @@ First we need to make a new project, so make a new folder and then clone this re
 git clone https://github.com/evilmog/htpclientapi.git
 ```
 
-Next we need to create a config.json file to store our hashtopolis config info, obviously change the port, the path to your cert file (we will get to that in a bit) as well as your api key
+#  Test connection and access
 
 ```
-{
-        "host":"https://urltohashtopolis.com",
-        "port":"443",
-        "certpath":"path to pem file saved with getcert.py",
-        "apikey":"xxxxxxxxxx"
-}
+import hashtopolis
+
+handle = hashtopolis.Hashtopolis(endpoint="https://<location on internet here>/api/user.php",port=443,api_key="<YOUR API KEY HERE, or someone eles's, i'm not your dad>")
+print(handle.test.connection()).get("response","No Response Error")
+print(handle.test.access()).get("response","No Response Error")
 ```
 
-Now we need to make a config.py file to get the config.json data
-
-```
-import json
-
-with open('config.json') as json_data_file:
-    data = json.load(json_data_file)
-```
-
-Next we need to make a getcert.py file to get the cert we need from htp
-
-```
-import ssl
-import config as cfg
-
-print cfg.data['port']
-print ssl.get_server_certificate((cfg.data['host'], int(cfg.data['port'])))
-```
-
-now we do this
-
-```
-python getcert.py > cert.pem
-```
 
 #  List Users
 now as an example we will list the users
 
 ```
-from htpclientapi.functions import *
+import hashtopolis
 
-import config
+handle = hashtopolis.Hashtopolis(endpoint="https://<location on internet here>/api/user.php",port=443,api_key="<YOUR API KEY HERE, or someone eles's, i'm not your dad>")
 
-data = listusers()
-
-for user in data["users"]:
-    userdata = getuser(str(user["userId"]))
-    print "UserId:          " + str(userdata["userId"])
-    print "  Username:        " + str(userdata["username"])
-    print "  e-mail:          " + str(userdata["email"])
-    print "  rightGroupId:    " + str(userdata["rightGroupId"])
-    print "  registered:      " + str(userdata["registered"])
-    print "  lastLogin:       " + str(userdata["lastLogin"])
-    print "  isValid:         " + str(userdata["isValid"])
-    print "  sessionLifetime: " + str(userdata["sessionLifetime"])
-    print " "
+user_list = handle.user.listUsers().get("users",[])
+for user in user_list:
+    user_data = handle.user.getUser(userId=user.get("userId"))
+    for property_name, value in user_data.items():
+        print("{property_name}: {value}".format(property_name= property_name, value=value))
 ```
+
+# Integgroll has not updated the documents below here, he decided to take a break for food and to pack. So they are just flat out wrong for the hashtopolis.py version of things for now.
+
 
 # Create Hashlist
 This is a fairly easy example, lets say now that we want to create a hashlist, we can do the following:

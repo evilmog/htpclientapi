@@ -712,7 +712,7 @@ def createsuperhashlist(superhashlistname, hashlists):
 
 
 def deletesuperhashlist(superhashlistid):
-    deletesuperhashlistjson = {'section': 'superhashlist"', 'request': 'deleteSuperhashlist',
+    deletesuperhashlistjson = {'section': 'superhashlist', 'request': 'deleteSuperhashlist',
                                'superhashlistId': superhashlistid, 'accessKey': accesskey}
     resp = requests.post(endpoint, verify=certpath, json=deletesuperhashlistjson)
     return resp.json()

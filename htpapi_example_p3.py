@@ -30,7 +30,7 @@ class HashtopolisClient:
         self.task = HashtopolisSection(self, "task")
         self.supertask = HashtopolisSection(self, "supertask")
         self.hashlist = HashtopolisSection(self, "hashlist")
-        self.superHashlist = HashtopolisSection(self, "superHashlist")
+        self.superhashlist = HashtopolisSection(self, "superhashlist")
         self.file = HashtopolisSection(self, "file")
         self.cracker = HashtopolisSection(self, "cracker")
         self.config = HashtopolisSection(self, "config")

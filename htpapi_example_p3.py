@@ -30,7 +30,7 @@ class HashtopolisClient:
         self.task = HashtopolisSection(self, "task")
         self.supertask = HashtopolisSection(self, "supertask")
         self.hashlist = HashtopolisSection(self, "hashlist")
-        self.superHashlist = HashtopolisSection(self, "superHashlist")
+        self.superhashlist = HashtopolisSection(self, "superhashlist")
         self.file = HashtopolisSection(self, "file")
         self.cracker = HashtopolisSection(self, "cracker")
         self.config = HashtopolisSection(self, "config")
@@ -106,11 +106,11 @@ get_hashlist_response = client.hashlist("getHashlist", {"hashlistId": 1})
 print(get_hashlist_response)
 
 # List SuperHashlists
-list_superhashlists_response = client.superHashlist("listSuperhashlists")
+list_superhashlists_response = client.superhashlist("listSuperhashlists")
 print(list_superhashlists_response)
 
 # Get SuperHashlist
-get_superhashlist_response = client.superHashlist("getSuperhashlist", {"superhashlistId": 1})
+get_superhashlist_response = client.superhashlist("getSuperhashlist", {"superhashlistId": 1})
 print(get_superhashlist_response)
 
 # List Files
